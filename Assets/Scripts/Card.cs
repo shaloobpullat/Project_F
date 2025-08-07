@@ -15,7 +15,8 @@ public class Card : MonoBehaviour
 
     private bool isFlipped = false;
     private bool isAnimating = false;
-    private GameManager gameManager;
+    private CheckMatching gameManager;
+    private Button cardButton;
    
 
 
@@ -23,12 +24,15 @@ public class Card : MonoBehaviour
 
     void Start()
     {
-        gameManager=FindAnyObjectByType<GameManager>();
+        gameManager=FindAnyObjectByType<CheckMatching>();
+        cardButton=GetComponentInChildren<Button>();
+       
         
         front_Face.SetActive(false);
         Back_Face.SetActive(true);
 
         StartCoroutine(StartShow());
+        cardButton.onClick.AddListener(OnCardClicked);
 
 
     }

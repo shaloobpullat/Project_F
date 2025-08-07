@@ -1,8 +1,11 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
-public class GameManager : MonoBehaviour
+public class CheckMatching : MonoBehaviour
 {
     
 
@@ -26,6 +29,8 @@ public class GameManager : MonoBehaviour
     {
         Card first = flippedCards[0];
         Card second = flippedCards[1];
+        string firstImageName = first.front_Face.GetComponent<UnityEngine.UI.Image>().sprite.name;
+        string secondImageName = second.front_Face.GetComponent<UnityEngine.UI.Image>().sprite.name;
 
 
         flippedCards.RemoveRange(0, 2);
@@ -33,7 +38,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        if (first.card_Id == second.card_Id)
+        if (firstImageName == secondImageName)
         {
             first.isMatched = true;
             second.isMatched = true;
