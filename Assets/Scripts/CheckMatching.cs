@@ -2,6 +2,7 @@ using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -11,8 +12,13 @@ public class CheckMatching : MonoBehaviour
 
     private List<Card> flippedCards = new List<Card>();
     public bool IsFlippingLocked = false;
+   
+    public UnityEvent onCardsMatched;
+    public UnityEvent onCardsNotMatched;
 
-    
+   
+
+
 
     public void StoreFlippedCard(Card card)
     {
@@ -42,14 +48,19 @@ public class CheckMatching : MonoBehaviour
         {
             first.isMatched = true;
             second.isMatched = true;
+
+            onCardsMatched?.Invoke();
+
+            
+
             // Play match animation/sound
         }
         else
         {
             first.FlipBack();
-            Debug.Log("first");
             second.FlipBack();
-            Debug.Log("first");
+
+            onCardsNotMatched?.Invoke();
         }
     }
 

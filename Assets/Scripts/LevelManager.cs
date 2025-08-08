@@ -28,16 +28,5 @@ public class LevelManager : MonoBehaviour
         columns = c;
     }
 
-    public bool GoToNextLevel()
-    {
-        if (rows == 2 && columns == 2)
-            SetLevel(2, 3);     
-        else if (rows == 2 && columns == 3) 
-            SetLevel(3, 3); 
-        else if (rows == 3 && columns == 3)
-            SetLevel(4, 4); 
-        else return false; 
-
-        return true;
-    }
+    
 }

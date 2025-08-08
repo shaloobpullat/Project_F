@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class UIManger : MonoBehaviour
 {  
@@ -46,5 +47,34 @@ public class UIManger : MonoBehaviour
     public void onHomeClick()
     {
         SceneManager.LoadScene(0);
+    }
+    public void GoToNextLevel()
+    {
+        int rows =LevelManager.Instance.rows;
+        int columns=LevelManager.Instance.columns;
+        if (rows == 2 && columns == 2)
+        {
+            LevelManager.Instance.SetLevel(2, 3);
+            SceneManager.LoadScene(1);
+        }
+        else if (rows == 2 && columns == 3)
+        {
+            LevelManager.Instance.SetLevel(3, 3);
+            SceneManager.LoadScene(1);
+        }            
+        else if (rows == 3 && columns == 3)
+        {
+            LevelManager.Instance.SetLevel(4, 4);
+            SceneManager.LoadScene(1);
+        }           
+        else
+        {
+            Debug.Log("no more level");
+        }
+
+
+        
+
+
     }
 }
