@@ -23,8 +23,10 @@ public class PointHandling : MonoBehaviour
     {
         currentPoint = 0;
         comboValue = 1;
-        maxTurns = LevelManager.Instance.rows * LevelManager.Instance.columns;
-        TotalPairs = (LevelManager.Instance.rows * LevelManager.Instance.columns) / 2;
+        int rows = LevelManager.Instance.rows;
+        int columns = LevelManager.Instance.columns;
+        maxTurns =  rows * columns;
+        TotalPairs = (rows * columns) / 2;
         UpdatePointText();
         UpdateTurnsText();
         ComboUIUpdate();
@@ -51,7 +53,7 @@ public class PointHandling : MonoBehaviour
             {            
                 PlayerPrefs.SetInt("hard", 1);
             }
-            else if (rows == 3 && columns == 3)
+            else if (rows == 4 && columns == 5)
             { 
                 PlayerPrefs.SetInt("VeryHard", 1);
             }

@@ -26,14 +26,14 @@ public class UIManger : MonoBehaviour
     public void OnHardClick()
     {
         AudioManager.Instance.PlayButtonClick();
-        LevelManager.Instance.SetLevel(3, 3);
+        LevelManager.Instance.SetLevel(4, 5);
         SceneManager.LoadScene(2);
     }
 
     public void OnVeryHardClick()
     {
         AudioManager.Instance.PlayButtonClick();
-        LevelManager.Instance.SetLevel(4, 4);
+        LevelManager.Instance.SetLevel(5, 5);
         SceneManager.LoadScene(2);
     }
     public void onHomeClick()
@@ -53,12 +53,12 @@ public class UIManger : MonoBehaviour
         }
         else if (rows == 2 && columns == 3)
         {
-            LevelManager.Instance.SetLevel(3, 3);
+            LevelManager.Instance.SetLevel(4, 5);
             SceneManager.LoadScene(2);
         }            
-        else if (rows == 3 && columns == 3)
+        else if (rows == 4 && columns == 5)
         {
-            LevelManager.Instance.SetLevel(4, 4);
+            LevelManager.Instance.SetLevel(5, 5);
             SceneManager.LoadScene(2);
         }           
         else

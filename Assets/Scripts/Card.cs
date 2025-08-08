@@ -61,7 +61,7 @@ public class Card : MonoBehaviour
     IEnumerator StartShow()
     {
         StartCoroutine(FlipCard(true));
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         FlipBack();
     }
     IEnumerator FlipCard(bool showFront)
@@ -106,9 +106,5 @@ public class Card : MonoBehaviour
         isAnimating = false;
 
     }
-    void Update()
-    {
-
-    }
-
+   
 }
