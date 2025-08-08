@@ -38,6 +38,7 @@ public class PointHandling : MonoBehaviour
         TotalPairs -= 1;
         if(TotalPairs == 0)
         {
+            AudioManager.Instance.PlayWinSound();
             gameWinPanel.SetActive(true);
             gamewinPointText.text = "YOUR POINT IS : " + currentPoint.ToString();
             int rows = LevelManager.Instance.rows;
@@ -66,6 +67,7 @@ public class PointHandling : MonoBehaviour
         maxTurns -= 1;
         if(maxTurns == 0&&TotalPairs!=0)
         {
+            AudioManager.Instance.PlayFailSound();
             gameOverPanel.SetActive(true);
             gameoverPointText.text="YOUR POINT IS : "+currentPoint.ToString();
         }

@@ -8,6 +8,7 @@ public class Card : MonoBehaviour
 {
     public GameObject front_Face;
     public GameObject Back_Face;
+    public GameObject Tick_imoji;
 
 
     public int card_Id;
@@ -30,6 +31,7 @@ public class Card : MonoBehaviour
         
         front_Face.SetActive(false);
         Back_Face.SetActive(true);
+        Tick_imoji.SetActive(false);
 
         StartCoroutine(StartShow());
         cardButton.onClick.AddListener(OnCardClicked);
@@ -38,6 +40,7 @@ public class Card : MonoBehaviour
     }
     public void OnCardClicked()
     {
+        AudioManager.Instance.PlayCardFlip();
         if (isFlipped || isMatched || isAnimating || gameManager.IsFlippingLocked)
         {
             return;

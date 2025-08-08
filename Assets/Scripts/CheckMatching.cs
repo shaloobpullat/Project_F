@@ -48,6 +48,10 @@ public class CheckMatching : MonoBehaviour
         {
             first.isMatched = true;
             second.isMatched = true;
+            AudioManager.Instance.PlayMatchSound();
+
+            first.Tick_imoji.SetActive(true);
+            second.Tick_imoji.SetActive(true);
 
             onCardsMatched?.Invoke();
 
@@ -57,6 +61,7 @@ public class CheckMatching : MonoBehaviour
         }
         else
         {
+            AudioManager.Instance.PlayFailSound();
             first.FlipBack();
             second.FlipBack();
 

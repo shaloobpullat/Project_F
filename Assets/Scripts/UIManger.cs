@@ -10,33 +10,40 @@ public class UIManger : MonoBehaviour
     
     public void OnEasyClick()
     {
+        AudioManager.Instance.PlayButtonClick();
         LevelManager.Instance.SetLevel(2, 2);
         SceneManager.LoadScene(2);
+        
     }
 
     public void OnMediumClick()
     {
+        AudioManager.Instance.PlayButtonClick();
         LevelManager.Instance.SetLevel(2, 3);
         SceneManager.LoadScene(2);
     }
 
     public void OnHardClick()
     {
+        AudioManager.Instance.PlayButtonClick();
         LevelManager.Instance.SetLevel(3, 3);
         SceneManager.LoadScene(2);
     }
 
     public void OnVeryHardClick()
     {
+        AudioManager.Instance.PlayButtonClick();
         LevelManager.Instance.SetLevel(4, 4);
         SceneManager.LoadScene(2);
     }
     public void onHomeClick()
     {
+        AudioManager.Instance.PlayButtonClick();
         SceneManager.LoadScene(1);
     }
     public void GoToNextLevel()
     {
+        AudioManager.Instance.PlayButtonClick();
         int rows =LevelManager.Instance.rows;
         int columns=LevelManager.Instance.columns;
         if (rows == 2 && columns == 2)
@@ -61,19 +68,23 @@ public class UIManger : MonoBehaviour
     }
     public void ResetGameData()
     {
+        AudioManager.Instance.PlayButtonClick();
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(1);
     }
     public void ExitGame()
     {
+        AudioManager.Instance.PlayButtonClick();
         Application.Quit();
     }
     public void Levelscene()
     {
+        AudioManager.Instance.PlayButtonClick();
         SceneManager.LoadScene(1);
     }
     public void Back()
     {
+        AudioManager.Instance.PlayButtonClick();
         SceneManager.LoadScene(0);
     }
 }
