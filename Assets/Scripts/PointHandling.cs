@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PointHandling : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class PointHandling : MonoBehaviour
     private int TotalPairs;
     private int comboValue;
 
-
     public TextMeshProUGUI pointText;
     public TextMeshProUGUI turnsText;
     public TextMeshProUGUI comboText;
@@ -18,11 +18,6 @@ public class PointHandling : MonoBehaviour
     public GameObject gameOverPanel;
     public TextMeshProUGUI gameoverPointText;
     public TextMeshProUGUI gamewinPointText;
-
-
-
-
-
 
     void Start()
     {
@@ -45,6 +40,20 @@ public class PointHandling : MonoBehaviour
         {
             gameWinPanel.SetActive(true);
             gamewinPointText.text = "YOUR POINT IS : " + currentPoint.ToString();
+            int rows = LevelManager.Instance.rows;
+            int columns = LevelManager.Instance.columns;
+            if (rows == 2 && columns == 2)
+            {
+                PlayerPrefs.SetInt("medium", 1);   
+            }
+            else if (rows == 2 && columns == 3)
+            {            
+                PlayerPrefs.SetInt("hard", 1);
+            }
+            else if (rows == 3 && columns == 3)
+            { 
+                PlayerPrefs.SetInt("VeryHard", 1);
+            }
         }
     }
     public void AddingPoints()

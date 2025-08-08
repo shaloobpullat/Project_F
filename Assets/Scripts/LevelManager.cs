@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // persists across scenes
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
