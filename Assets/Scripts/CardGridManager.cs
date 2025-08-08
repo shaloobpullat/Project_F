@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class CardGridManager : MonoBehaviour
 {
     
-    public int rows = 4;
-    public int columns = 4;
+   [SerializeField] private int rows ;
+   [SerializeField] private int columns ;
 
     public RectTransform cardContainer;
     private GridLayoutGroup grid;
@@ -15,6 +15,8 @@ public class CardGridManager : MonoBehaviour
 
     private void Start()
     {
+        rows = LevelManager.Instance.rows;
+        columns = LevelManager.Instance.columns;
         spawnCards=FindAnyObjectByType<SpawnCards>();
         grid = cardContainer.GetComponent<GridLayoutGroup>();
 
